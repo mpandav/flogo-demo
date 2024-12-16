@@ -106,8 +106,9 @@ pipeline {
                     def appFlogoTestFile = findFlogoFile("*.flogotest")
                     echo "appFlogoTestFile : $appFlogoTestFile"
                     sh "chmod 777 $appBinaryPath"
-                    //skipping test given mac does not support linux binaries
-                  //  sh "./$appBinaryPath -test --test-file $appFlogoTestFile --result-filename testResult"
+                    
+                    // mac does not support linux binaries
+                    sh "./$appBinaryPath -test --test-file $appFlogoTestFile --result-filename testResult"
                 }
             }
         }
@@ -178,7 +179,7 @@ pipeline {
                     funName = funName.substring(0, funName.lastIndexOf('.zip'))
                     
                     echo "Deploy Lambda Function Name: $funName"
-                    //sh "aws lambda create-function  --function-name $funName --runtime provided.al2023 --handler bootstrap --architectures x86_6 --role $awsRoleARN --region $awsRegion --zip-file fileb://$zipLocation"
+                    sh "aws lambda create-function  --function-name $funName --runtime provided.al2023 --handler bootstrap --architectures x86_6 --role $awsRoleARN --region $awsRegion --zip-file fileb://$zipLocation"
                 }
 
             }
