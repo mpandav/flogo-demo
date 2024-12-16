@@ -15,5 +15,20 @@ The architecture diagram isn't updated for AWS Lambda so it shows HTTP Trigger b
 - You will need to get your aws credentials for lambda deployment
 - jenkins server should have http request plugin installed we are using it for calling TIBCO Cloud PAPI
 
+## Result
+
+Pipeline Overview:
+
+<img width="1713" alt="image" src="https://github.com/user-attachments/assets/44d3ecf9-0ace-43ae-bf50-5b98af4be57c" />
+
+Detailed Stage View
+
+<img width="1713" alt="image" src="https://github.com/user-attachments/assets/78530d65-f9af-4848-a890-73a878fc46f8" />
+
+Workspace View
+
+<img width="1713" alt="image" src="https://github.com/user-attachments/assets/8490aa10-4c99-4e4a-87a8-009ad531bbff" />
+
+
 
 Hopefully, it will give you quick peek of how easy it is to build automation around TIBCO Flogo for FaaS deployment!!!
