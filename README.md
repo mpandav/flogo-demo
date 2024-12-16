@@ -1,4 +1,4 @@
-# FaaS (Lambda) with TIBCO Flogo Enterprise
+# Automated Deployment of FaaS (Lambda) with TIBCO Flogo Enterprise
 
 ## Scenario
 
