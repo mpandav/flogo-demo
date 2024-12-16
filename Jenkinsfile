@@ -15,7 +15,7 @@ pipeline {
         environment { 
             buildId = ""
             funName = ""
-            awsRoleARN = "arn:aws:iam::075021648303:role/EMEA_Lambda"
+            awsRoleARN = "arn:aws:iam::xxxx:role/EMEA_Lambda"
             awsRegion = "eu-central-1"
             zipLocation =""
             
