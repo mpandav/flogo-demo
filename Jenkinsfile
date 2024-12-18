@@ -18,6 +18,8 @@ pipeline {
             awsRoleARN = "arn:aws:iam::xxxx:role/EMEA_Lambda"
             awsRegion = "eu-central-1"
             zipLocation =""
+            tibCloudToken=credentials('tibCloudToken')
+
             
         }
     stages {
@@ -58,7 +60,7 @@ pipeline {
                             [contentType: 'APPLICATION_FORM_DATA', name: 'flogo.json', fileName: 'ecolabel-service-lambda.flogo', uploadFile: appJsonPath]
                         ],
                         url: 'https://eu.api.cloud.tibco.com/tci/v1/subscriptions/0/app/build/flogo?os=linux&arch=amd64',
-                        customHeaders: [[name: 'Authorization', value: 'Bearer CIC~636dEAsLIjgYjFsuYu79kSEf']],
+                        customHeaders: [[name: 'Authorization', value: 'Bearer $tibCloudToken']],
                         validResponseCodes: '202,400,404,401,500'
                     )
                     
@@ -84,7 +86,7 @@ pipeline {
                     httpMode: 'GET',
                     acceptType: 'APPLICATION_OCTETSTREAM',
                     url: "https://eu.api.cloud.tibco.com/tci/v1/subscriptions/0/app/build/flogo/${buildId}?compress=false",
-                    customHeaders: [[name: 'Authorization', value: 'Bearer CIC~636dEAsLIjgYjFsuYu79kSEf']],
+                    customHeaders: [[name: 'Authorization', value: 'Bearer $tibCloudToken']],
                     validResponseCodes: '200:299',
                     outputFile: 'bin/flogoapp' // Consider a more specific filename like 'flogo-app.zip'
                     )
